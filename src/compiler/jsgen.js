@@ -177,7 +177,7 @@ class TypedInput {
     }
 
     asUnknown () {
-        return this.source;
+        return `${this.source}`;
     }
 
     isSafe () {
@@ -238,7 +238,7 @@ class ConstantInput {
         this._cacheVar = null;
 
         this.type = TYPES.UNKNOWN;
-        if (Number.isFinite(+constantValue)) {
+        if (Number.isFinite(constantValue)) {
             this.type = Number.isInteger(constantValue) ?
                 TYPES.NUMBER_INT :
                 TYPES.NUMBER;
@@ -316,8 +316,7 @@ class ConstantInput {
     }
 
     isSafe () {
-        const val = this.constantValue;
-        if (Number.isFinite(+val)) {
+        if (Number.isFinite(this.constantValue)) {
             return true;
         }
         return this.safe;
@@ -2002,6 +2001,11 @@ class JSGenerator {
 // For extensions.
 JSGenerator.unstable_exports = {
     TYPES,
+    TYPE_NUMBER: TYPES.NUMBER,
+    TYPE_STRING: TYPES.STRING,
+    TYPE_BOOLEAN: TYPES.BOOLEAN,
+    TYPE_NUMBER_NAN: TYPES.NUMBER_NAN,
+    TYPE_UNKNOWN: TYPES.UNKNOWN,
     BLOCKS,
     factoryNameVariablePool,
     functionNameVariablePool,
