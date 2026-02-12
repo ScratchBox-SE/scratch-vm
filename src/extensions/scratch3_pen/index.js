@@ -466,7 +466,7 @@ class Scratch3PenBlocks {
                     },
                     filter: [TargetType.SPRITE]
                 },
-                '---',
+                /* '---',
                 {
                     opcode: 'drawTriangle',
                     blockType: BlockType.COMMAND,
@@ -638,7 +638,7 @@ class Scratch3PenBlocks {
                         }
                     },
                     filter: [TargetType.SPRITE]
-                },
+                }, */
                 /* Legacy blocks, should not be shown in flyout */
                 {
                     opcode: 'setPenShadeToNumber',
